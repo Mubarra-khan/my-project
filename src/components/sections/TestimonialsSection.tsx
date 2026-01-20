@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { useState } from "react";
 
 const testimonials = [
   {
@@ -50,8 +51,13 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+
   return (
-    <section id="testimonials" className="relative py-32 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden">
+    <section id="testimonials" className="relative py-32 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden w-[100%]">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
@@ -89,77 +95,77 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.15,
-                ease: "easeOut"
-              }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <Card className="relative h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-yellow-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2">
-                {/* Gradient Border Effect */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+        {/* Infinite Scrolling Testimonials */}
+        <div
+          className="relative flex overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <motion.div
+            className="flex gap-8 pr-8"
+            animate={{
+              x: isPaused ? 0 : [0, -2400], // Adjust based on card width + gap
+            }}
+            transition={{
+              x: {
+                duration: 30,
+                repeat: Infinity,
+                ease: "linear",
+              },
+            }}
+          >
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <motion.div
+                key={`${testimonial.name}-${index}`}
+                className="shrink-0 w-full max-w-md group"
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Card className="relative h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-yellow-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/10">
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
-                <CardContent className="relative p-8">
-                  {/* Quote Icon */}
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 10 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="mb-6"
-                  >
-                    <Quote className="h-10 w-10 text-yellow-500/40 group-hover:text-yellow-500/60 transition-colors duration-300" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <p className="text-muted-foreground mb-8 leading-relaxed text-lg italic">
-                    "{testimonial.content}"
-                  </p>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-8">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          duration: 0.3,
-                          delay: 0.5 + i * 0.1,
-                          ease: "easeOut"
-                        }}
-                        viewport={{ once: true }}
-                      >
-                        <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-4">
+                  <CardContent className="relative p-8">
+                    {/* Quote Icon */}
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.1, rotate: 10 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      className="mb-6"
                     >
-                      {testimonial.avatar}
+                      <Quote className="h-10 w-10 text-yellow-500/40 group-hover:text-yellow-500/60 transition-colors duration-300" />
                     </motion.div>
-                    <div>
-                      <div className="font-bold text-foreground text-lg">{testimonial.name}</div>
-                      <div className="text-sm text-yellow-400 font-medium">{testimonial.role}</div>
+
+                    {/* Content */}
+                    <p className="text-muted-foreground mb-8 leading-relaxed text-lg italic">
+                      "{testimonial.content}"
+                    </p>
+
+                    {/* Rating */}
+                    <div className="flex gap-1 mb-8">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                      ))}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+
+                    {/* Author */}
+                    <div className="flex items-center gap-4">
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      >
+                        {testimonial.avatar}
+                      </motion.div>
+                      <div>
+                        <div className="font-bold text-foreground text-lg">{testimonial.name}</div>
+                        <div className="text-sm text-yellow-400 font-medium">{testimonial.role}</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

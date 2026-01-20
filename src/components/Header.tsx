@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Youtube } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Case Studies", href: "#case-studies" },
+  { name: "Work", href: "#work" },
   { name: "Testimonials", href: "#testimonials" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -22,10 +25,11 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Youtube className="h-8 w-8 text-red-500" />
-            <span className="text-xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-              Digitalhub Agency
-            </span>
+            <img
+              src="/logoo.jpeg"
+              alt="Logo"
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
