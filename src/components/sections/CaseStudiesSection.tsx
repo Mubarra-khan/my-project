@@ -43,7 +43,7 @@ const caseStudies = [
 
 export default function CaseStudiesSection() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-background via-card/20 to-background overflow-hidden">
+    <section className="relative py-10 bg-gradient-to-b from-background via-card/20 to-background overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
@@ -70,13 +70,13 @@ export default function CaseStudiesSection() {
             <span className="text-sm font-medium text-green-400">Success Stories</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+          <h2 className="text-3xl font-black mb-8 leading-tight">
             <span className="text-foreground">Real </span>
             <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
               Results
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             See how we've helped YouTubers transform their channels and achieve massive growth.
           </p>
         </motion.div>

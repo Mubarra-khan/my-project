@@ -25,8 +25,14 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900/40 border-t border-slate-700/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-purple-500/5 rounded-full blur-xl" />
+        <div className="absolute bottom-10 left-10 w-24 h-24 bg-blue-500/5 rounded-full blur-lg" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-indigo-500/3 to-transparent rounded-full blur-2xl" />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">

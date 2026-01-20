@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Send, Calendar, MessageCircle } from "lucide-react
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-32 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden">
+    <section id="contact" className="relative py-10 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
@@ -36,13 +36,13 @@ export default function ContactSection() {
             <span className="text-sm font-medium text-cyan-400">Get In Touch</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+          <h2 className="text-3xl font-black mb-8 leading-tight">
             <span className="text-foreground">Ready to </span>
             <span className="bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent">
               Grow Your Channel?
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Let's discuss how we can help you achieve YouTube success. Get in touch today!
           </p>
         </motion.div>

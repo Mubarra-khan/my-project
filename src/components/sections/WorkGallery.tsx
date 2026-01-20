@@ -51,19 +51,37 @@ export function WorkGallery() {
 
   return (
     <>
-      <section id="work" className="py-24 px-4">
+      <section id="work" className="py-6 px-4">
         <div className="max-w-7xl mx-auto mb-16">
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold mb-4"
+            >
               Some of Our{" "}
               <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-pink-600">
                 Work!!
               </span>
-            </h2>
-            <p className="text-base text-white/70 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="text-base text-white/70 max-w-2xl mx-auto"
+            >
               Take a look at some of our premium quality thumbnail designs and videos we've made for our clients!
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
 
         {/* First Row - Left to Right */}

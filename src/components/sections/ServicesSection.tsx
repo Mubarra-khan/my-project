@@ -104,13 +104,13 @@ export default function ServicesSection() {
             <span className="text-sm font-medium text-blue-400">Our Services</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+          <h2 className="text-3xl font-black mb-8 leading-tight">
             <span className="text-foreground">What We </span>
             <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
               Do
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Comprehensive YouTube services to skyrocket your growth and take your channel to the next level.
           </p>
         </motion.div>

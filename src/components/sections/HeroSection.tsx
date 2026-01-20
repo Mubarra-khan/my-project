@@ -21,12 +21,13 @@ const floatingAnimation = {
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-red-950/20">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900/30 to-purple-950/20">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-red-500/3 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-purple-500/4 via-blue-500/2 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500/5 to-cyan-500/5 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '4s' }} />
       </div>
 
       {/* Grid Pattern Overlay */}
@@ -39,8 +40,9 @@ export default function HeroSection() {
           {/* Premium Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-red-500/10 to-pink-500/10 border border-red-500/20 rounded-full px-6 py-3 mb-12 backdrop-blur-sm"
           >
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
@@ -52,9 +54,10 @@ export default function HeroSection() {
           {/* Main Heading with Enhanced Typography */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-[0.9] tracking-tight"
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 leading-[0.9] tracking-tight"
           >
             <span className="text-foreground block">Scale Your</span>
             <span className="bg-gradient-to-r from-red-500 via-pink-500 to-red-600 bg-clip-text text-transparent block">
@@ -66,9 +69,10 @@ export default function HeroSection() {
           {/* Enhanced Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-light"
+            viewport={{ once: true }}
+            className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-light"
           >
             Professional YouTube growth services: automation, SEO, thumbnails, editing,
             and analytics to boost your channel to millions of views.
@@ -77,8 +81,9 @@ export default function HeroSection() {
           {/* Premium CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
           >
             <Button
@@ -107,8 +112,9 @@ export default function HeroSection() {
           {/* Enhanced Stats Grid */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
             className="grid grid-cols-4 gap-6 max-w-md mx-auto lg:mx-0"
           >
             {[

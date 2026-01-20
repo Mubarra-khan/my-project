@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronDown, X, ArrowRight } from 'lucide-react';
 import { AddToCartModal } from '../AddToCartModal';
 
@@ -51,32 +52,52 @@ const FAQAccordion = () => {
   };
 
   return (
-    <section id="faq" className="py-24 px-4 relative overflow-hidden">
+    <section id="faq" className="py-6 px-4 relative overflow-hidden">
       {/* Background gradient orbs */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* FAQ Badge */}
-        <div className="flex justify-center mb-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-6"
+        >
           <span className="inline-block bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-[0_0_20px_rgba(59,130,246,0.4)]">
             FAQ
           </span>
-        </div>
+        </motion.div>
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-12 text-white"
+        >
           Frequently Asked{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-700">
             Questions
           </span>
-        </h2>
+        </motion.h2>
 
         {/* FAQ Items */}
         <div className="space-y-4 mb-8">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
+              viewport={{ once: true }}
               className={`rounded-2xl overflow-hidden transition-all duration-300 backdrop-blur-xl ${
                 openItems === index
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-[0_0_30px_rgba(59,130,246,0.3)]'
@@ -104,7 +125,7 @@ const FAQAccordion = () => {
                   </p>
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 

@@ -74,24 +74,36 @@ export function CaseStudies() {
   ]
 
   return (
-    <section id="case-studies" className="py-24 px-4">
+    <section id="case-studies" className="py-6 px-4">
       <div className="max-w-full mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-4"
+          >
             Real Results,{" "}
             <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-pink-600">
               Real Growth
             </span>
-          </h2>
-          <p className="text-base text-white/70 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-base text-white/70 max-w-2xl mx-auto"
+          >
             See how we've helped creators transform their channels.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div ref={ref} className="space-y-8">

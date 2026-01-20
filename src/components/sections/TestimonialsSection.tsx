@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="relative py-32 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden w-[100%]">
+    <section id="testimonials" className="relative py-10 bg-gradient-to-b from-card/30 via-background to-card/30 overflow-hidden w-[100%]">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
@@ -84,13 +84,13 @@ export default function TestimonialsSection() {
             <span className="text-sm font-medium text-yellow-400">Client Reviews</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+          <h2 className="text-3xl font-black mb-8 leading-tight">
             <span className="text-foreground">What Our </span>
             <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
               Clients Say
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Don't just take our word for it. Here's what creators say about working with us.
           </p>
         </motion.div>
